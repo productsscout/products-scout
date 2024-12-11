@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="05d5f6d9-039a-441a-b9a6-576932e635d1" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {}
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/productsscout/scout-products.git",
+    "accountId": "7df36b9b-95ee-4c20-a9e7-e412ab5209fb"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2p7wHZx3nT9ZLsFxtAT3J7J1ERu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/avi95/Products Scout/products-scout-frontend/src/pages/assets",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\PyCharm 2024.2.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\avi95\Products Scout\products-scout-frontend\src\pages\assets" />
+      <recent name="C:\Users\avi95\Products Scout\products_scout\products_scout\static\images" />
+      <recent name="C:\Users\avi95\Products Scout\products_scout\templates" />
+      <recent name="C:\Users\avi95\Products Scout\products-scout-frontend\public" />
+      <recent name="C:\Users\avi95\Products Scout\products_scout\core" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\avi95\Products Scout" />
+      <recent name="C:\Users\avi95\Products Scout\products-scout-frontend\src\pages\Try Now" />
+      <recent name="C:\Users\avi95\Products Scout\products-scout-frontend\src\pages\Dashboard" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="Products Scout" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23726.102" />
+        <option value="bundled-python-sdk-5e1850174b45-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23726.102" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="05d5f6d9-039a-441a-b9a6-576932e635d1" name="Changes" comment="" />
+      <created>1732130335232</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1732130335232</updated>
+      <workItem from="1732130336333" duration="3125000" />
+      <workItem from="1732136577834" duration="3968000" />
+      <workItem from="1732172630030" duration="5925000" />
+      <workItem from="1732181566659" duration="56000" />
+      <workItem from="1732181721452" duration="14082000" />
+      <workItem from="1732250588616" duration="4679000" />
+      <workItem from="1732256935661" duration="4972000" />
+      <workItem from="1732268724222" duration="712000" />
+      <workItem from="1732270096682" duration="454000" />
+      <workItem from="1732275324764" duration="5122000" />
+      <workItem from="1732305428477" duration="7976000" />
+      <workItem from="1732346289649" duration="6680000" />
+      <workItem from="1732375841327" duration="1065000" />
+      <workItem from="1732377690991" duration="13987000" />
+      <workItem from="1732429361825" duration="11373000" />
+      <workItem from="1732455083245" duration="16765000" />
+      <workItem from="1732519298347" duration="8999000" />
+      <workItem from="1732557297080" duration="16766000" />
+      <workItem from="1732602281605" duration="5068000" />
+      <workItem from="1732607429464" duration="1901000" />
+      <workItem from="1732633930823" duration="10975000" />
+      <workItem from="1732690757543" duration="7329000" />
+      <workItem from="1732726404256" duration="13869000" />
+      <workItem from="1732742070882" duration="5000" />
+      <workItem from="1732768627696" duration="14733000" />
+      <workItem from="1732821814181" duration="6851000" />
+      <workItem from="1732862725265" duration="965000" />
+      <workItem from="1732877928627" duration="14454000" />
+      <workItem from="1732894444435" duration="21271000" />
+      <workItem from="1732955631773" duration="6213000" />
+      <workItem from="1732968842814" duration="2997000" />
+      <workItem from="1732975857852" duration="5992000" />
+      <workItem from="1733026787180" duration="17177000" />
+      <workItem from="1733111916134" duration="9781000" />
+      <workItem from="1733161288214" duration="2137000" />
+      <workItem from="1733225511334" duration="7288000" />
+      <workItem from="1733249294768" duration="38000" />
+      <workItem from="1733334513410" duration="8095000" />
+      <workItem from="1733376867599" duration="5984000" />
+      <workItem from="1733392498956" duration="8179000" />
+      <workItem from="1733406349866" duration="2369000" />
+      <workItem from="1733448924497" duration="2482000" />
+      <workItem from="1733451443771" duration="23000" />
+      <workItem from="1733493551535" duration="13111000" />
+      <workItem from="1733640412868" duration="1273000" />
+      <workItem from="1733683237163" duration="7133000" />
+      <workItem from="1733765232008" duration="10192000" />
+      <workItem from="1733841109284" duration="5820000" />
+      <workItem from="1733852526769" duration="6857000" />
+      <workItem from="1733912730622" duration="9328000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Products_Scout$main.coverage" NAME="main Coverage Results" MODIFIED="1733846674005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>

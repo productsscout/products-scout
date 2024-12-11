@@ -1,0 +1,957 @@
+.dashboard {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease; /* Smooth transition when resizing */
+}
+
+.with-sidebar .main-content {
+    flex-grow: 1;
+    transition: margin-left 0.3s ease; /* Smoothly adjust when sidebar is toggled */
+}
+
+.without-sidebar .main-content {
+    flex-grow: 1;
+    margin-left: 0; /* No margin when the sidebar is hidden */
+}
+
+/* Main Content with Background Image */
+.main-content {
+    /*flex-grow: 1;*/
+    position: relative; /* Create a stacking context */
+    padding: 40px;
+    background-color: #f9f9f9; /* Backup color */
+    display: flex;
+    /*flex-direction: column;*/
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevent overflow issues */
+}
+
+/* Pseudo-element for Background Image with Reduced Opacity */
+.main-content::before {
+    content: ""; /* Required for pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/company-logo.png'); /* Replace with your logo path */
+    background-size: contain; /* Adjust size for better fit */
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.03; /* Adjust this value for desired transparency */
+}
+
+/* Greeting Section */
+.greeting-section {
+    position: absolute;
+    top: 30px; /* Adjust for better spacing */
+    left: 30px;
+    font-family: 'Arial', sans-serif; /* Choose appropriate font */
+    text-align: left;
+    z-index: 2; /* Above the background image */
+    color: #d40000;
+    font-weight: bold;
+    text-transform: capitalize;
+
+}
+
+.greeting-section h1 {
+    font-size: 48px; /* Adjust for visibility */
+    margin-bottom: 10px;
+    opacity: 0; /* Start with hidden */
+    animation: fadeEffect 3s ease-in-out infinite alternate; /* Fade effect */
+}
+
+.greeting-section p {
+    font-size: 20px; /* Smaller tagline text */
+    color: #555; /* Slightly dim for contrast */
+    opacity: 0; /* Start hidden */
+    animation: fadeInUp 1s 0.5s forwards; /* Fade in after 0.5s delay */
+    margin-left: 40px;
+}
+
+.greeting-section .tagline-transition {
+    position: relative;
+    display: inline-block;
+    animation: moveOut 1s forwards; /* Move out animation */
+}
+
+.greeting-section .new-tagline {
+    opacity: 0; /* Start hidden */
+    animation: fadeInUp 1s 1s forwards; /* Fade in new tagline after 1s */
+}
+
+/* Fade-in animation for H1 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px); /* Slide from top */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* No movement */
+    }
+}
+
+/* Fade-in-up animation for tagline */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Slide from bottom */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* No movement */
+    }
+}
+
+/* Move-out animation for "Don't test, only best" */
+@keyframes moveOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-50px); /* Move out to left */
+    }
+}
+
+/* Fade-in and Fade-out Effects */
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.3s ease-in; /* Fade-in duration */
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s ease-out; /* Fade-out duration */
+}
+
+/* Main Content Adjustments */
+.main-content.query-active {
+    justify-content: flex-end; /* Move content to the bottom */
+    align-items: center; /* Center horizontally */
+    padding-bottom: 40px; /* Add bottom padding */
+}
+
+/* Hide the greeting section when query starts */
+.main-content.query-active .greeting-section {
+    display: none; /* Completely hide the greeting section */
+}
+
+/* Prompt Section */
+.prompt-section {
+    position: relative;
+    text-align: center;
+    width: 80%; /* Responsive width */
+    max-width: 600px; /* Limit size for larger screens */
+    z-index: 2; /* Above the background image */
+}
+
+.unsifted-textarea {
+    width: 100%;
+    height: 25px;
+    padding: 12px 20px; /* Padding with space for placeholder alignment */
+    font-size: 16px;
+    line-height: 1.5; /* Adjust line spacing */
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 120, 212, 0.2);
+    background-color: #fff;
+    overflow-y: auto; /* Enable vertical scrollbar after 3 lines */
+    resize: none; /* Prevent manual resizing */
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
+}
+
+
+.unsifted-textarea:focus {
+    transform: scale(1.02);
+    box-shadow: 0 8px 15px rgba(0, 120, 212, 0.4);
+}
+
+/* Textarea Adjustments */
+.shifted-textarea {
+    position: relative;
+    width: 80%;
+    height: 25px;
+    padding: 12px 60px 12px 20px; /* Ensure padding-right matches button width + spacing */
+    font-size: 16px;
+    line-height: 1.5; /* Adjust line spacing */
+    border: none;
+    border-radius: 25px;
+    margin: 0 auto; /* Center horizontally */
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 120, 212, 0.2);
+    background-color: #fff;
+    overflow-y: auto; /* Enable vertical scrollbar after 3 lines */
+    resize: none; /* Prevent manual resizing */
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
+}
+
+
+.shifted-textarea:focus {
+    transform: scale(1.02);
+    box-shadow: 0 8px 15px rgba(0, 120, 212, 0.4);
+}
+
+/* Adjusted Prompt Section */
+.prompt-section.shifted-prompt {
+    width: 90%; /* Adjusted for smaller screens */
+    max-width: 700px; /* Limit size for larger screens */
+    position: absolute; /* Changed to fixed positioning */
+    bottom: 20px; /* Always stay 20px above the bottom */
+    left: 50%; /* Horizontally center */
+    transform: translateX(-50%); /* Center horizontally */
+    transition: all 0.3s ease; /* Smooth transition */
+    z-index: 2; /* Ensure it's above other elements */
+}
+
+/* Adjust textarea inside shifted prompt */
+.shifted-textarea {
+    width: calc(100% - 90px); /* Dynamic width to fit with button */
+    max-width: calc(700px - 90px); /* Adjust to match max-width of the prompt */
+    padding-right: 80px; /* Space for button */
+}
+
+.unsifted-button {
+    margin-top: 15px; /* Space between textarea and button */
+    padding: 12px 25px;
+    border: none;
+    background-color: #007bff; /* Primary button color */
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.unsifted-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+.unsifted-button:active {
+    transform: scale(1); /* Reset scale on click */
+}
+
+
+/* Button as Icon */
+.shifted-button {
+    position: absolute; /* Position the button within the prompt section */
+    top: 20%; /* Align vertically within the reserved space */
+    right: 15px; /* Align to the right of the prompt */
+    transform: none; /* Center vertically */
+    width: 40px; /* Icon button dimensions */
+    height: 40px;
+    background-color: transparent; /* Default transparent background */
+    background-image: url('../assets/ion.png'); /* Add the find button logo */
+    background-size: contain; /* Adjust the logo size to fit the button */
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    z-index: 2; /* Ensure it stays above other elements */
+}
+
+/* Button Icon Styling */
+.button-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Fit the image properly within the button */
+}
+
+
+/* Remove hover effects */
+.shifted-button:hover {
+    background-color: transparent; /* No change on hover */
+    /*transform: none; !* No transform *!*/
+    transform: scale(1.05);
+    box-shadow: none; /* No shadow */
+}
+
+/* Footer Styling */
+.try-now-footer1 {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f4f4f4; /* Light gray for contrast */
+    color: #333; /* Dark text for readability */
+    text-align: center;
+    font-size: 14px; /* Small font size */
+    padding: 10px 0; /* Add padding for spacing */
+    border-top: 1px solid #ddd; /* Add a subtle border for separation */
+    z-index: 1; /* Ensure it stays on top */
+    line-height: 0.1; /* Adjust line height for compactness */
+}
+
+
+.shifted-button:disabled {
+    background-color: transparent; /* Gray background */
+    cursor: not-allowed;    /* Show "not-allowed" cursor */
+    opacity: 0.6;          /* Reduce opacity */
+    transform: none;
+
+}
+
+.unsifted-button:disabled {
+    background-color: #ccc; /* Gray background */
+    color: black;
+    cursor: not-allowed;    /* Show "not-allowed" cursor */
+    opacity: 0.6;          /* Reduce opacity */
+}
+
+/*------------------------------------------------------------------*/
+
+/*.main-content {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    height: 100vh;*/
+/*    width: 100%;*/
+/*    background-color: #f9f9f9;*/
+/*}*/
+
+.shifted-conversation-container {
+    width: 80%;
+    max-width: 1000px;
+    height: 80%;
+    margin-top: 30px;
+    background-color: transparent;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    overflow-y: auto;
+    /*margin: 0 auto; !* Center horizontally *!*/
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute; /* Use absolute positioning for perfect centering */
+    top: 40%; /* Vertically center */
+    left: 50%; /* Horizontally center */
+    transform: translate(-50%, -50%); /* Adjust for width and height */
+
+}
+
+.message {
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.user-message {
+    display: block; /* Ensure the element is treated as a block-level element */
+    background-color: #f3f3f3; /* Background color */
+    color: #0d0d0d; /* Text color */
+    align-self: flex-end; /* Align the bubble to the right */
+    text-align: left !important; /* Force text to align to the left */
+    max-width: 45%; /* Limit the width */
+    word-wrap: break-word; /* Break long words to fit */
+    margin-bottom: 10px; /* Space between messages */
+    padding: 10px 15px; /* Padding inside the bubble */
+    border-radius: 8px; /* Rounded corners */
+}
+
+
+/* Style for the bot's message */
+.bot-message {
+    background-color: transparent;
+    color: #040109;
+    align-self: flex-start;
+    text-align: left;
+    width: 95%;
+    margin-bottom: 15px; /* Space between different messages */
+    padding: 10px; /* Padding around the message */
+    /*border-radius: 8px;*/
+    /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); !* Subtle shadow for depth *!*/
+}
+
+/* Ensure all Markdown content is aligned left */
+.bot-message * {
+    text-align: left !important; /* Force left alignment */
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+/* Specific styles for lists */
+.bot-message ul {
+    margin-left: 20px; /* Indent lists */
+    padding-left: 20px;
+    list-style-type: disc; /* Display bullet points */
+}
+
+.bot-message li {
+    text-align: left;
+}
+
+/* Headings */
+.bot-message h1, .bot-message h2, .bot-message h3, .bot-message h4, .bot-message h5, .bot-message h6 {
+    text-align: left;
+    margin: 10px 0;
+    font-weight: bold; /* Ensure headings are bold */
+}
+
+/* Paragraphs */
+.bot-message p {
+    text-align: left;
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px; /* Spacing between paragraphs */
+}
+
+/* Code Block (Preformatted text) */
+.bot-message pre {
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    padding: 15px;
+    font-family: "Courier New", Courier, monospace;
+    color: #333;
+    overflow-x: auto; /* Horizontal scroll if code is too long */
+    white-space: pre-wrap; /* Allow wrapping of long lines */
+    margin-bottom: 10px;
+}
+
+/* Inline Code */
+.bot-message code {
+    background-color: #f5f5f5;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: "Courier New", Courier, monospace;
+    color: #333;
+}
+
+/* Hyperlinks */
+.bot-message a {
+    color: #007bff;
+    text-decoration: underline;
+    word-break: break-word; /* Avoid long URLs overflowing */
+}
+
+.bot-message a:hover {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+/* Bold Text */
+.bot-message strong, .bot-message b {
+    font-weight: bold;
+    color: #000;
+}
+
+/* Italic Text */
+.bot-message em, .bot-message i {
+    font-style: italic;
+    color: #555;
+}
+
+/* Blockquote */
+.bot-message blockquote {
+    background-color: #f9f9f9;
+    border-left: 5px solid #ccc;
+    padding: 10px 15px;
+    margin: 15px 0;
+    font-style: italic;
+    color: #555;
+}
+
+/* Images */
+.bot-message img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+/* Horizontal Rule */
+.bot-message hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+/* Tables */
+.bot-message table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+.bot-message th, .bot-message td {
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.bot-message th {
+    background-color: #f1f1f1;
+}
+
+/* Lists with ordered (numbered) items */
+.bot-message ol {
+    padding-left: 20px;
+    list-style-type: decimal; /* Numbered lists */
+}
+
+/* Handling the spacing and styles for various other inline elements */
+.bot-message span {
+    font-size: 0.9em; /* Smaller text if needed */
+    color: #666;
+}
+
+.bot-message .highlight {
+    background-color: #f0f8ff;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* Loading Animation: Gradient Line */
+.loading-indicator {
+    display: flex;
+    flex-direction: column; /* Stack lines vertically */
+    align-items: flex-start; /* Align to the left */
+    margin-top: 5px; /* Add spacing below the user message */
+    margin-left: 10px; /* Adjust spacing for alignment */
+    gap: 5px; /* Spacing between the two lines */
+}
+
+.gradient-line1 {
+    width: 80%; /* Length of the line */
+    height: 10px; /* Thickness of the line */
+    background: linear-gradient(
+        to right,
+        #7ba9d8 0%,
+        #98dcb9 50%,
+        #ff004d 100%
+    ); /* Gradient colors */
+    background-size: 200% 100%; /* To create a moving gradient effect */
+    animation: gradient-move 1.5s infinite; /* Infinite animation */
+    border-radius: 5px; /* Smooth corners */
+}
+
+.gradient-line2 {
+    width: 60%; /* Length of the line */
+    height: 8px; /* Thickness of the line */
+    background: linear-gradient(
+        to right,
+        #7ba9d8 0%,
+        #98dcb9 50%,
+        #ff004d 100%
+    ); /* Gradient colors */
+    background-size: 200% 100%; /* To create a moving gradient effect */
+    animation: gradient-move 1.5s infinite; /* Infinite animation */
+    border-radius: 4px; /* Smooth corners */
+}
+
+
+.gradient-line3 {
+    width: 40%; /* Length of the line */
+    height: 7px; /* Thickness of the line */
+    background: linear-gradient(
+        to right,
+        #7ba9d8 0%,
+        #98dcb9 50%,
+        #ff004d 100%
+    ); /* Gradient colors */
+    background-size: 200% 100%; /* To create a moving gradient effect */
+    animation: gradient-move 1.5s infinite; /* Infinite animation */
+    border-radius: 3px; /* Smooth corners */
+}
+
+@keyframes gradient-move {
+    0% {
+        background-position: 0% 0%; /* Start of gradient */
+    }
+    50% {
+        background-position: 100% 0%; /* Move to end */
+    }
+    100% {
+        background-position: 0% 0%; /* Back to start */
+    }
+}
+
+
+/*----------------------------------------------------------------------------*/
+
+.loading-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.loading-dotted-spinner {
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
+
+.dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: dot-spin 1.5s linear infinite;
+}
+
+/* Position dots around the circle */
+.dot:nth-child(1) {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: 0s;
+    background-color: #f44336; /* Red */
+}
+
+.dot:nth-child(2) {
+    top: 14%;
+    left: 86%;
+    transform: translate(-50%, -50%);
+    animation-delay: 0.1s;
+    background-color: #ff9800; /* Orange */
+}
+
+.dot:nth-child(3) {
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    animation-delay: 0.2s;
+    background-color: #ffeb3b; /* Yellow */
+}
+
+.dot:nth-child(4) {
+    top: 86%;
+    left: 86%;
+    transform: translate(-50%, -50%);
+    animation-delay: 0.3s;
+    background-color: #4caf50; /* Green */
+}
+
+.dot:nth-child(5) {
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: 0.4s;
+    background-color: #2196f3; /* Blue */
+}
+
+.dot:nth-child(6) {
+    top: 86%;
+    left: 14%;
+    transform: translate(-50%, -50%);
+    animation-delay: 0.5s;
+    background-color: #9c27b0; /* Purple */
+}
+
+.dot:nth-child(7) {
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    animation-delay: 0.6s;
+    background-color: #e91e63; /* Pink */
+}
+
+.dot:nth-child(8) {
+    top: 14%;
+    left: 14%;
+    transform: translate(-50%, -50%);
+    animation-delay: 0.7s;
+    background-color: #795548; /* Brown */
+}
+
+/* Animation for the dots */
+@keyframes dot-spin {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.loading-text {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+
+/*============================================================================*/
+
+/* Container for products */
+.products-chat-container {
+    margin-top: 20px; /* Space between chat and products */
+    padding: 10px 0;
+}
+
+/* Horizontal scrolling for product sections */
+.horizontal-scroll {
+    display: flex; /* Align items horizontally */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    gap: 16px; /* Add spacing between product cards */
+    padding: 10px 0;
+    scroll-behavior: smooth; /* Smooth scrolling effect */
+}
+
+/* Styling for individual product cards */
+.product-card {
+    min-width: 200px; /* Fixed width for cards */
+    max-width: 200px; /* Ensures consistent card size */
+    background: #ffffff; /* Light background for contrast */
+    border: 1px solid #ddd; /* Subtle border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Inner spacing */
+    text-align: center; /* Center-align text */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Even spacing */
+    position: relative; /* For hover effect */
+    cursor: pointer; /* Pointer cursor for interactive elements */
+    transition: transform 0.2s ease; /* Smooth hover effect */
+}
+
+/* Add hover effect for product cards */
+.product-card:hover {
+    transform: scale(1.05); /* Slight zoom-in on hover */
+}
+
+/* Product image */
+.product-image {
+    max-width: 100%; /* Fit image within the card */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 4px; /* Slight rounding */
+    margin-bottom: 8px; /* Space below image */
+}
+
+/* Product title */
+.product-title {
+    font-size: 0.9rem; /* Slightly smaller font size */
+    font-weight: bold;
+    margin: 8px 0;
+    color: #333; /* Dark text for contrast */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+    transition: color 0.3s; /* Smooth hover transition */
+}
+
+/* Full product title on hover */
+.product-card:hover .product-title::after {
+    content: attr(title); /* Use title attribute for full text */
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    color: #fff; /* White text */
+    padding: 5px 10px;
+    border-radius: 4px; /* Rounded tooltip */
+    font-size: 0.8rem;
+    white-space: nowrap; /* Prevent wrapping */
+    z-index: 10; /* Ensure tooltip is above other content */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.product-card:hover .product-title::after {
+    opacity: 1; /* Show tooltip */
+    visibility: visible;
+}
+
+/* Product price */
+.product-price {
+    font-size: 0.9rem;
+    margin: 4px 0;
+    color: #666; /* Subtle text color */
+}
+
+/* Product rating */
+.product-rating {
+    font-size: 0.9rem;
+    margin: 4px 0;
+    color: #666;
+}
+
+/* Link to Amazon */
+.product-link {
+    display: inline-block;
+    color: #fdfdfd; /* Blue link */
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin: 8px 0;
+    transition: color 0.2s;
+}
+
+.product-link:hover {
+    color: #f3f6fa; /* Darker blue on hover */
+    text-decoration: underline; /* Underline for hover */
+}
+
+/* Add to Cart button */
+.add-to-cart-button {
+    background-color: #007bff; /* Primary blue button */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-top: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    width: 100%; /* Full width */
+    transition: background-color 0.2s ease;
+}
+
+.add-to-cart-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Section title styling */
+.section-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Product list wrapper */
+.product-list {
+    display: flex; /* Horizontal layout */
+    flex-wrap: nowrap; /* No wrapping, horizontal scroll only */
+    gap: 16px; /* Space between cards */
+}
+
+.fallback-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #fef3f3; /* Light red/pink background */
+    color: #d9534f; /* Strong red for text */
+    border: 1px solid #f5c6cb; /* Softer border to match the theme */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Add space around the text */
+    font-size: 18px; /* Larger, more readable text */
+    font-weight: bold; /* Bold text for emphasis */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 20px auto; /* Center the message and add spacing */
+    max-width: 80%; /* Restrict width for better readability */
+    animation: fadeIn 0.5s ease-in-out; /* Smooth fade-in effect */
+}
+
+/* Keyframe animation for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px); /* Slight upward motion */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Settle into place */
+    }
+}
+
+
+
+/*========================================Responsive View==========================================================*/
+
+@media (max-width: 480px){
+    .greeting-section h1{
+        font-size: 28px;
+    }
+
+    .greeting-section p{
+        font-size: 16px;
+        margin-left: 15px;
+    }
+
+    .prompt-section {
+        width: 90%; /* Full width for prompt section */
+        max-width: 500px; /* Set a max-width to prevent overflow */
+
+    }
+
+    .unsifted-textarea {
+        font-size: 12px; /* Smaller font size for textareas */
+        height: 20px;
+        max-height: 50px;
+    }
+
+    .shifted-textarea {
+        font-size: 12px; /* Smaller font size for textareas */
+        max-height: 25px;
+    }
+
+    .shifted-button {
+        width: 20px; /* Smaller button size */
+        height: 20px;
+    }
+
+    .message {
+        font-size: 12px !important; /* Smaller font size for messages */
+        padding: 6px 10px; /* Adjust padding */
+    }
+
+}
+
+@media (max-width: 768px){
+
+    .greeting-section h1{
+        font-size: 36px;
+    }
+
+    .greeting-section p{
+        font-size: 20px;
+        margin-left: 15px;
+    }
+
+    .prompt-section {
+        width: 90%; /* Full width for prompt section */
+        max-width: 600px; /* Set a max-width to prevent overflow */
+
+    }
+
+    .unsifted-textarea {
+        font-size: 14px; /* Smaller font size for textareas */
+        height: 25px;
+        max-height: 50px;
+    }
+
+    .shifted-textarea {
+        font-size: 14px; /* Smaller font size for textareas */
+        max-height: 30px;
+    }
+
+    .shifted-button {
+        width: 30px; /* Smaller button size */
+        height: 30px;
+    }
+
+    .shifted-conversation-container{
+        top: 43%;
+    }
+
+    .message {
+        font-size: 14px !important; /* Smaller font size for messages */
+        padding: 8px 12px; /* Adjust padding */
+    }
+}
+

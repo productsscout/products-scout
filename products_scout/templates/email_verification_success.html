@@ -1,0 +1,129 @@
+<!--#=================================================DONE===================================================-->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verified</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #007bff, #6c63ff);
+            color: #ffffff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .logo {
+            max-width: 100px;
+            margin: 0 auto 20px auto;
+            display: block;
+            animation: bounce 2s infinite;
+        }
+        h1 {
+            color: #ffdd57;
+            margin-bottom: 10px;
+            animation: slideDown 1.5s ease-in-out;
+        }
+        p {
+            font-size: 18px;
+            color: #f1f1f1;
+            margin: 10px 0 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .highlight {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .home-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background-color: #ff5722;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 25px;
+            box-shadow: 0 4px 12px rgba(255, 87, 34, 0.4);
+            transition: all 0.3s ease-in-out;
+        }
+        .home-button:hover {
+            background-color: #e64a19;
+            box-shadow: 0 6px 18px rgba(255, 87, 34, 0.6);
+            transform: translateY(-3px);
+        }
+        .message-container {
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{% static 'images/logo.png' %}" alt="Company Logo" class="logo" />
+        <h1>Welcome to Products Scout!</h1>
+        <div class="message-container">
+            <p>Congratulations! Your email has been successfully verified. You now have access to all <span class="highlight">premium features</span> of our platform.</p>
+            <p>Start exploring a world of amazing products, tailored recommendations, and exclusive deals.</p>
+        </div>
+        <a href="/" onclick="return redirectToReactApp()" class="home-button">Explore Now</a>
+    </div>
+
+    <script>
+        function redirectToReactApp() {
+            window.location.href = '${window.location.origin}/signin'; // Replace with your actual React app URL
+            return false;
+        }
+    </script>
+</body>
+</html>

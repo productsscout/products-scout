@@ -1,0 +1,498 @@
+/* Sidebar styling */
+.sidebar {
+    width: 250px;
+    background: #ffffff; /* Light theme background */
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Shadow for sidebar */
+    position: relative; /* Ensure stacking order for header and footer */
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+    padding: 20px 10px;
+    background: linear-gradient(to bottom, #fcfcfc, #f1f1f1); /* Softer light gradient */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Softer divider */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow to make header appear elevated */
+    z-index: 2; /* Ensure it appears on top */
+}
+
+/* Sidebar Body */
+.sidebar-body {
+    flex: 1;
+    padding: 20px 10px;
+    background: #ffffff; /* Maintain white background */
+    margin: -10px 0; /* Negative margins to create a layered effect */
+    z-index: 1; /* Place body behind header and footer */
+    box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.05), inset 0 -5px 10px rgba(0, 0, 0, 0.05); /* Inner shadow effect */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+    padding: 20px 10px;
+    background: linear-gradient(to top, #fcfcfc, #f1f1f1); /* Softer light gradient */
+    border-top: 1px solid rgba(0, 0, 0, 0.05); /* Softer divider */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow to make footer appear elevated */
+    z-index: 2; /* Ensure it appears on top */
+}
+
+
+/* Sidebar styling remains unchanged */
+
+/* Profile Menu */
+.profile-menu {
+    position: absolute;
+    bottom: 80px; /* Position it above the Profile icon */
+    left: 20px; /* Align it with the Profile icon */
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 10px 0;
+    width: 150px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Profile Menu Options */
+.profile-option {
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    padding: 8px 15px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.profile-option:hover {
+    background-color: #0078D4;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+    padding: 20px 10px;
+    background: linear-gradient(to top, #f9f9f9, #e9e9e9); /* Gradient for bottom section */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow effect */
+}
+
+.icon-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.icon {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.sidebar-icon {
+    width: 50px; /* Ensure consistent size */
+    height: 50px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+.new-chat-icon {
+    margin-right: 15px; /* Add margin to the right of New Chat */
+}
+
+.cart-icon {
+    margin-left: 15px; /* Add margin to the left of Cart */
+}
+
+.icon:hover .sidebar-icon {
+    transform: scale(1.1);
+}
+
+.icon:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Tooltip styling */
+.tooltip {
+    position: absolute;
+    bottom: -20px;
+    font-size: 14px;
+    color: #333;
+    background: #f1f1f1;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Profile image styling */
+.profile-icon {
+    width: 60px; /* Slightly larger size for profile icon */
+    height: 60px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+/* Sidebar body */
+.sidebar-body {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.sidebar-body h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+}
+
+.history-list li {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #e6e6e6;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.history-list li strong {
+    color: #0078d4;
+}
+
+/* Info icon styling */
+.info-icon {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.info-icon:hover {
+    transform: scale(1.2);
+}
+
+/* Tooltip container */
+.info-tooltip-container {
+    position: relative; /* Set relative positioning for the tooltip container */
+}
+
+/* Tooltip styling */
+.info-tooltip {
+    position: absolute;
+    left: 0;
+    background-color: #ffffff; /* Pure white for better contrast */
+    color: #000000; /* Black text for readability */
+    padding: 8px 12px; /* Adds spacing for better visual appeal */
+    font-size: 14px; /* Slightly larger font size */
+    font-weight: 500; /* Bold text for emphasis */
+    border-radius: 8px; /* Rounded corners for a polished look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow for depth */
+    z-index: 10; /* Ensures the tooltip is on top */
+    white-space: nowrap; /* Prevents text wrapping */
+    display: none; /* Hide the tooltip by default */
+    opacity: 0; /* Initially transparent */
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; /* Smooth appearance */
+}
+
+.info-icon:hover + .info-tooltip {
+    display: block; /* Show tooltip on hover */
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Positions correctly */
+}
+
+/*-------------------------------------------------------------------------*/
+
+
+/* Sidebar Toggle Button */
+
+.sidebar.hidden {
+    width: 0;
+    transform: translateX(-250px);
+}
+
+.sidebar.visible {
+    transform: translateX(0);
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #007bff;
+    position: absolute;
+    top: 50%;
+    left: 250px;
+    transform: translateY(-50%);
+    color: white;
+    border: none;
+    border-radius: 10% 50% 50% 10%; /* Half-circle from the left-hand side */
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, left 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+    background-color: #0056b3;
+}
+
+.history-notification {
+  /* Base styles */
+  color: #666; /* Gray color for the text */
+  font-size: 14px; /* Adjust font size as needed */
+  font-weight: bold; /* Bold font weight */
+  text-align: center; /* Center the text horizontally */
+
+  /* Styling for the unavailable state */
+  background-color: #f2dede; /* Light red background */
+  border: 1px solid #e0b4b4; /* Light red border */
+  border-radius: 4px; /* Rounded corners */
+  padding: 10px; /* Padding around the text */
+}
+
+
+/*===================================================Responsive View====================================================*/
+
+/* 480px - Mobile View */
+@media (max-width: 480px) {
+    .sidebar {
+        position: absolute;
+        top: 0;
+        left: -250px; /* Initially off-screen */
+        width: 250px;
+        height: 100%;
+        transition: left 0.3s ease-in-out;
+    }
+
+    .sidebar.visible {
+        left: 0; /* Slide-in from the left */
+    }
+
+    .sidebar-header, .sidebar-body, .sidebar-footer {
+        padding: 15px;
+    }
+
+    /* Align icons horizontally in mobile view */
+    .icon-row {
+        display: flex;
+        flex-direction: row; /* Change from column to row */
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .icon {
+        margin:  0 10px !important; /* Reduce space between icons */
+    }
+
+    .sidebar-toggle {
+        left: 0;
+    }
+
+    .profile-icon, .sidebar-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Increase image size slightly */
+    .profile-icon, .sidebar-icon {
+        width: 40px !important; /* Slightly bigger size */
+        height: 40px !important; /* Slightly bigger size */
+    }
+
+    .info-tooltip {
+        font-size: 12px;
+    }
+
+    .sidebar-footer .icon {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* 768px - Tablet View */
+@media (max-width: 767px) {
+    .sidebar {
+        position: absolute;
+        top: 0;
+        left: -250px; /* Initially off-screen */
+        width: 250px;
+        height: 100%;
+        transition: left 0.3s ease-in-out;
+    }
+
+    .sidebar.visible {
+        left: 0; /* Slide-in from the left */
+    }
+
+    .sidebar-header, .sidebar-body, .sidebar-footer {
+        padding: 20px;
+    }
+
+    /* Correct position of icons for smaller tablets */
+    .icon-row {
+        display: flex;
+        flex-direction: row; /* Ensure icons are aligned horizontally */
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0; /* Adjust spacing */
+    }
+
+    .sidebar-footer .icon {
+        margin: 15px 0;
+    }
+
+    .sidebar-toggle {
+        left: 0;
+    }
+
+    .profile-icon, .sidebar-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .info-tooltip {
+        font-size: 14px;
+    }
+
+    .sidebar-footer .icon {
+        width: 100%;
+        text-align: center;
+    }
+
+    .sidebar-body h3 {
+        font-size: 16px;
+    }
+
+    .tooltip {
+        font-size: 12px;
+    }
+}
+
+/*===================================================================================*/
+
+/* History List */
+.history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background: linear-gradient(145deg, #97b2d3, #b8c0cc); /* Gradient for history items */
+    border-radius: 8px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.history-item:hover {
+    background: linear-gradient(145deg, #97b2d3, #b8c0cc); /* Different hover gradient */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.history-title {
+    flex: 1;
+    font-size: 16px;
+    color: #040109; /* Soft white for text */
+    font-family: "Poppins", sans-serif; /* Stylish font for titles */
+    margin-right: 10px;
+    white-space: nowrap; /* Ensure single line */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Add ellipsis (...) for long text */
+    font-weight: 500; /* Slightly bold */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.history-title:hover {
+    color: #970824; /* Light blue color on hover */
+}
+
+/* Edit Input */
+.edit-input {
+    flex: 1;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Options (Three Dots Menu) */
+.options {
+    position: relative;
+    color: black;
+    cursor: pointer;
+}
+
+.options .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #34495e;
+    border: 1px solid #2c3e50;
+    border-radius: 5px;
+    padding: 5px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    font-family: "Roboto", sans-serif;
+}
+
+.options:hover .menu {
+    display: block;
+}
+
+.menu button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    text-align: left;
+    width: 100%;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu button:hover {
+    background-color: #3e5c77;
+    color: #74b9ff; /* Matching hover color */
+}
+

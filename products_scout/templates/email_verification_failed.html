@@ -1,0 +1,182 @@
+<!--#=================================================DONE===================================================-->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification Failed</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff4e50, #f9d423);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1.5s ease-in-out;
+            text-align: center;
+        }
+
+        .logo {
+            max-width: 120px;
+            margin: 0 auto 20px;
+            display: block;
+            animation: shake 1s ease-in-out infinite;
+        }
+
+        h1 {
+            color: #ff5722;
+            margin-bottom: 10px;
+            font-size: 28px;
+            animation: slideDown 1.5s ease-in-out;
+        }
+
+        p {
+            font-size: 18px;
+            color: #f1f1f1;
+            margin: 10px 0 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .home-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background-color: #ff5722;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 25px;
+            box-shadow: 0 4px 12px rgba(255, 87, 34, 0.4);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .home-button:hover {
+            background-color: #e64a19;
+            box-shadow: 0 6px 18px rgba(255, 87, 34, 0.6);
+            transform: translateY(-3px);
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-5px);
+            }
+            50% {
+                transform: translateX(5px);
+            }
+            75% {
+                transform: translateX(-5px);
+            }
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .logo {
+                max-width: 90px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .home-button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 22px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .home-button {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{% static 'images/logo.png' %}" alt="Company Logo" class="logo" />
+        <h1>Verification Failed</h1>
+        <div class="message-container">
+            <p>Unfortunately, your email verification could not be completed due to an error.</p>
+            <p>Please try verifying your email again or contact <span class="highlight">support</span> if the issue persists.</p>
+        </div>
+        <a href="/" onclick="return redirectToReactHomePage()" class="home-button">Go to Home Page</a>
+    </div>
+
+    <script>
+        function redirectToReactHomePage() {
+            window.location.href = '${window.location.origin}/'; // Replace with your actual React app URL
+            return false;
+        }
+    </script>
+</body>
+</html>

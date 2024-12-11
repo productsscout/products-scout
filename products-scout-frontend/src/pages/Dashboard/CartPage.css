@@ -1,0 +1,165 @@
+/* Cart Page Container */
+.cart-page {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Title */
+.cart-page h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #444;
+}
+
+/* Cart List */
+.cart-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Cart Item */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Product Image */
+.cart-item-photo {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Product Details */
+.cart-item-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Product Name */
+.cart-item-details h4 {
+    font-size: 1rem;
+    margin: 0 0 10px 0;
+    color: #222;
+    font-weight: bold;
+    text-align: left;
+    line-height: 1.3;
+}
+
+/* Product Price */
+.cart-item-details p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+    color: #555;
+}
+
+/* View on Amazon Link */
+.view-on-amazon-link {
+    display: inline-block;
+    margin-top: 5px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.view-on-amazon-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Remove Button */
+.remove-from-cart-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    align-self: flex-start;
+}
+
+.remove-from-cart-button:hover {
+    background-color: #e53935;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-item-photo {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+    }
+
+    .remove-from-cart-button {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .cart-item-details h4 {
+        font-size: 0.9rem;
+    }
+
+    .cart-item-details p {
+        font-size: 0.8rem;
+    }
+}
+
+.empty-cart-message {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #555; /* Subtle gray for text */
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    border: 2px dashed #ccc; /* Dashed border for a soft highlight */
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f9f9f9, #e6e6e6); /* Subtle gradient background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Add a fade-in animation for a better user experience */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* For smaller screens, adjust padding and font size */
+@media (max-width: 768px) {
+    .empty-cart-message {
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+}

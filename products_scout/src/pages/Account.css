@@ -1,0 +1,200 @@
+/* Account Page Styles */
+#account-page-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-family: 'Arial', sans-serif;
+}
+
+#account-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#account-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #555555;
+    margin-bottom: 5px;
+}
+
+.input-field {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.input-field:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.input-disabled {
+    padding: 10px;
+    font-size: 16px;
+    color: #888888;
+    background-color: #f8f8f8;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-primary:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.message {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.message.success {
+    color: #28a745;
+}
+
+.message.error {
+    color: #dc3545;
+}
+
+/* Loading Container */
+#loading-container {
+    text-align: center;
+    font-size: 16px;
+    color: #555555;
+}
+
+/* Back to homepage link */
+.back-to-homepage-link {
+    background: none;
+    border: none;
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+}
+
+.back-to-homepage-link,
+.login-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.back-to-homepage-link:hover,
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+
+/* For screens smaller than 720px (tablets and smaller desktops) */
+@media (max-width: 720px) {
+    #account-page-container {
+        max-width: 90%;  /* Reduced max-width to fit screen */
+        margin: 30px auto;  /* Adjusted margin */
+        padding: 15px;  /* Reduced padding */
+    }
+
+    #account-title {
+        font-size: 22px;  /* Slightly smaller font size for title */
+        margin-bottom: 15px;  /* Adjusted margin */
+    }
+
+    .form-group label {
+        font-size: 12px;  /* Smaller font size for labels */
+    }
+
+    .input-field {
+        font-size: 14px;  /* Slightly smaller font size for inputs */
+    }
+
+    .btn-primary {
+        padding: 10px;  /* Reduced padding for buttons */
+        font-size: 14px;  /* Reduced button text size */
+    }
+
+    .message {
+        font-size: 12px;  /* Adjusted font size for messages */
+    }
+
+    .back-to-homepage-link {
+        font-size: 12px;  /* Adjusted font size for links */
+    }
+}
+
+/* For screens smaller than 480px (mobile portrait) */
+@media (max-width: 480px) {
+    #account-page-container {
+        max-width: 100%;  /* Full width on very small screens */
+        margin: 20px;  /* Reduced margin for better mobile layout */
+        padding: 10px;  /* Reduced padding */
+        margin-top: 30%;
+    }
+
+    #account-title {
+        font-size: 20px;  /* Smaller title font size */
+        margin-bottom: 12px;  /* Reduced margin */
+    }
+
+    .form-group label {
+        font-size: 10px;  /* Smaller label font size */
+    }
+
+    .input-field {
+        font-size: 12px;  /* Smaller font size for inputs */
+        padding: 8px;  /* Reduced padding for inputs */
+    }
+
+    .btn-primary {
+        padding: 8px;  /* Smaller button padding */
+        font-size: 12px;  /* Smaller button font size */
+    }
+
+    .message {
+        font-size: 12px;  /* Adjusted font size for messages */
+    }
+
+    .back-to-homepage-link {
+        font-size: 10px;  /* Smaller link font size */
+    }
+}

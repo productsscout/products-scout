@@ -1,0 +1,681 @@
+/* Animations */
+@keyframes fadeEffect {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.try-main-content {
+    flex-grow: 1;
+    content: ""; /* Required for pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    background-color: #f9f9f9; /* Backup color */
+    display: flex;
+    flex-direction: column; /* Ensure the layout is columnar */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevent horizontal overflow */
+    box-sizing: border-box; /* Ensure padding does not affect overall width */
+}
+
+
+/* Greeting Section */
+.try-greeting-section {
+    position: absolute;
+    top: 30px; /* Adjust for better spacing */
+    /*left: 30px;*/
+    font-family: 'Arial', sans-serif; /* Choose appropriate font */
+    text-align: center;
+    z-index: 2; /* Above the background image */
+    color: #d40000;
+    font-weight: bold;
+    text-transform: capitalize;
+
+}
+
+.try-greeting-section .try-h1 {
+    font-size: 48px; /* Adjust for visibility */
+    margin-bottom: 10px;
+    opacity: 0; /* Start with hidden */
+    animation: fadeEffect 3s ease-in-out infinite alternate; /* Fade effect */
+}
+
+.try-greeting-section .try-tagline {
+    font-size: 20px; /* Smaller tagline text */
+    color: #555; /* Slightly dim for contrast */
+    opacity: 0; /* Start hidden */
+    animation: fadeInUp 1s 0.5s forwards; /* Fade in after 0.5s delay */
+    /*margin-left: 10px;*/
+}
+
+
+/* Fade-in animation for H1 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px); /* Slide from top */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* No movement */
+    }
+}
+
+/* Fade-in-up animation for tagline */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Slide from bottom */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* No movement */
+    }
+}
+
+/* Move-out animation for "Don't test, only best" */
+@keyframes moveOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-50px); /* Move out to left */
+    }
+}
+
+/* Fade-in and Fade-out Effects */
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.3s ease-in; /* Fade-in duration */
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s ease-out; /* Fade-out duration */
+}
+
+
+
+/* Prompt Section */
+.try-prompt-section {
+    position: relative;
+    text-align: center;
+    width: 80%; /* Responsive width */
+    max-width: 600px; /* Limit size for larger screens */
+    z-index: 2; /* Above the background image */
+}
+
+.try-unsifted-textarea {
+    width: 100%;
+    height: 25px;
+    padding: 12px 20px; /* Padding with space for placeholder alignment */
+    font-size: 16px;
+    line-height: 1.5; /* Adjust line spacing */
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 120, 212, 0.2);
+    background-color: #fff;
+    overflow-y: auto; /* Enable vertical scrollbar after 3 lines */
+    resize: none; /* Prevent manual resizing */
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
+}
+
+
+/* Textarea Adjustments */
+.try-shifted-textarea {
+    position: relative;
+    width: 80%;
+    height: 25px;
+    padding: 12px 60px 12px 20px; /* Ensure padding-right matches button width + spacing */
+    font-size: 16px;
+    line-height: 1.5; /* Adjust line spacing */
+    border: none;
+    border-radius: 25px;
+    margin: 0 auto; /* Center horizontally */
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 120, 212, 0.2);
+    background-color: #fff;
+    overflow-y: auto; /* Enable vertical scrollbar after 3 lines */
+    resize: none; /* Prevent manual resizing */
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
+}
+
+
+/* Adjusted Prompt Section */
+.try-prompt-section.try-shifted-prompt {
+    width: 90%; /* Adjusted for smaller screens */
+    max-width: 700px; /* Limit size for larger screens */
+    position: absolute; /* Changed to fixed positioning */
+    bottom: 20px; /* Always stay 20px above the bottom */
+    left: 50%; /* Horizontally center */
+    transform: translateX(-50%); /* Center horizontally */
+    transition: all 0.3s ease; /* Smooth transition */
+    z-index: 2; /* Ensure it's above other elements */
+}
+
+/* Adjust textarea inside shifted prompt */
+.try-shifted-textarea {
+    width: calc(100% - 90px); /* Dynamic width to fit with button */
+    max-width: calc(700px - 90px); /* Adjust to match max-width of the prompt */
+    padding-right: 80px; /* Space for button */
+}
+
+.try-unsifted-button {
+    margin-top: 15px; /* Space between textarea and button */
+    padding: 12px 25px;
+    border: none;
+    background-color: #007bff; /* Primary button color */
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.try-unsifted-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+.try-unsifted-button:active {
+    transform: scale(1); /* Reset scale on click */
+}
+
+
+/* Button as Icon */
+.try-shifted-button {
+    position: absolute; /* Position the button within the prompt section */
+    top: 20%; /* Align vertically within the reserved space */
+    right: 15px; /* Align to the right of the prompt */
+    transform: none; /* Center vertically */
+    width: 40px; /* Icon button dimensions */
+    height: 40px;
+    background-color: transparent; /* Default transparent background */
+    background-image: url('../assets/ion.png'); /* Add the find button logo */
+    background-size: contain; /* Adjust the logo size to fit the button */
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    z-index: 2; /* Ensure it stays above other elements */
+}
+
+/* Button Icon Styling */
+.try-button-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Fit the image properly within the button */
+}
+
+
+/* Remove hover effects */
+.try-shifted-button:hover {
+    background-color: transparent; /* No change on hover */
+    /*transform: none; !* No transform *!*/
+    transform: scale(1.05);
+    box-shadow: none; /* No shadow */
+}
+
+/* Style for the button when it is disabled */
+.try-unsifted-button:disabled,
+.try-shifted-button:disabled {
+    background-color: transparent; /* Light grey background */
+    color: #cccccc; /* Dark grey text color */
+    cursor: not-allowed; /* Change cursor to indicate it's disabled */
+    transform: none; /* Remove scaling effect */
+}
+
+.try-unsifted-button:disabled:hover,
+.try-shifted-button:disabled:hover {
+    /*background-color: #cccccc; !* Prevent hover effect *!*/
+    transform: none; /* Prevent hover scaling */
+}
+
+/* Footer Styling */
+/*.try-now-footer1 {*/
+/*    position: fixed;*/
+/*    bottom: 0;*/
+/*    width: 100%;*/
+/*    background-color: #f4f4f4; !* Light gray for contrast *!*/
+/*    color: #333; !* Dark text for readability *!*/
+/*    text-align: center;*/
+/*    font-size: 14px; !* Small font size *!*/
+/*    padding: 10px 0; !* Add padding for spacing *!*/
+/*    border-top: 1px solid #ddd; !* Add a subtle border for separation *!*/
+/*    z-index: 1; !* Ensure it stays on top *!*/
+/*    line-height: 0.1; !* Adjust line height for compactness *!*/
+/*}*/
+
+/*------------------------------------------------------------------*/
+
+.try-shifted-conversation-container {
+    width: 80%;
+    /*max-width: 1000px;*/
+    height: 80%;
+    margin-top: 30px;
+    background-color: transparent;
+    /*border: 1px solid #ddd;*/
+    /*border-radius: 10px;*/
+    padding: 15px;
+    overflow-y: auto;
+    /*margin: 0 auto; !* Center horizontally *!*/
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute; /* Use absolute positioning for perfect centering */
+    top: 40%; /* Vertically center */
+    left: 50%; /* Horizontally center */
+    transform: translate(-50%, -50%); /* Adjust for width and height */
+
+}
+
+.try-user-message,
+.try-bot-message {
+    background-color: #e5e5e5;
+    padding: 15px;
+    border-radius: 10px;
+    /*max-width: 90%;*/
+    font-size: 1rem;
+}
+
+.try-user-message {
+    display: block; /* Ensure the element is treated as a block-level element */
+    color: #0d0d0d; /* Text color */
+    align-self: flex-end; /* Align the bubble to the right */
+    text-align: left !important; /* Force text to align to the left */
+    max-width: 45%; /* Limit the width */
+    word-wrap: break-word; /* Break long words to fit */
+    margin-bottom: 10px; /* Space between messages */
+    padding: 10px 15px; /* Padding inside the bubble */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #d4f1d4;
+}
+
+
+/* Style for the bot's message */
+.try-bot-message {
+    background-color: #f0f0f0;
+    color: #040109;
+    align-self: flex-start;
+    text-align: left !important;
+    width: 90%;
+    margin-bottom: 15px; /* Space between different messages */
+    padding: 10px; /* Padding around the message */
+    /*border-radius: 8px;*/
+    /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); !* Subtle shadow for depth *!*/
+}
+
+/*============================================================================*/
+
+/* Container for products */
+.try-products-chat-container {
+    margin-top: 20px; /* Space between chat and products */
+    padding: 10px 0;
+}
+
+/* Horizontal scrolling for product sections */
+.try-horizontal-scroll {
+    display: flex; /* Align items horizontally */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    gap: 16px; /* Add spacing between product cards */
+    padding: 10px 0;
+    scroll-behavior: smooth; /* Smooth scrolling effect */
+}
+
+/* Styling for individual product cards */
+.try-product-card {
+    min-width: 200px; /* Fixed width for cards */
+    max-width: 200px; /* Ensures consistent card size */
+    background: #ffffff; /* Light background for contrast */
+    border: 1px solid #ddd; /* Subtle border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Inner spacing */
+    text-align: center; /* Center-align text */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Even spacing */
+    position: relative; /* For hover effect */
+    cursor: pointer; /* Pointer cursor for interactive elements */
+    transition: transform 0.2s ease; /* Smooth hover effect */
+}
+
+/* Add hover effect for product cards */
+.try-product-card:hover {
+    transform: scale(1.05); /* Slight zoom-in on hover */
+}
+
+/* Product image */
+.try-product-image {
+    max-width: 100%; /* Fit image within the card */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 4px; /* Slight rounding */
+    margin-bottom: 8px; /* Space below image */
+}
+
+/* Product title */
+.try-product-title {
+    font-size: 0.9rem; /* Slightly smaller font size */
+    font-weight: bold;
+    margin: 8px 0;
+    color: #333; /* Dark text for contrast */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+    transition: color 0.3s; /* Smooth hover transition */
+}
+
+/* Full product title on hover */
+.try-product-card:hover .try-product-title::after {
+    content: attr(title); /* Use title attribute for full text */
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    color: #fff; /* White text */
+    padding: 5px 10px;
+    border-radius: 4px; /* Rounded tooltip */
+    font-size: 0.8rem;
+    white-space: nowrap; /* Prevent wrapping */
+    z-index: 10; /* Ensure tooltip is above other content */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.try-product-card:hover .try-product-title::after {
+    opacity: 1; /* Show tooltip */
+    visibility: visible;
+}
+
+/* Product price */
+.try-product-price {
+    font-size: 0.9rem;
+    margin: 4px 0;
+    color: #666; /* Subtle text color */
+}
+
+/* Product rating */
+.try-product-rating {
+    font-size: 0.9rem;
+    margin: 4px 0;
+    color: #666;
+}
+
+/* Link to Amazon */
+.try-product-link {
+    display: inline-block;
+    color: #fdfdfd; /* Blue link */
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin: 8px 0;
+    transition: color 0.2s;
+}
+
+.try-product-link:hover {
+    color: #f3f6fa; /* Darker blue on hover */
+    text-decoration: underline; /* Underline for hover */
+}
+
+/* Add to Cart button */
+.try-add-to-cart-button {
+    background-color: #007bff; /* Primary blue button */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-top: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    width: 100%; /* Full width */
+    transition: background-color 0.2s ease;
+}
+
+.try-add-to-cart-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Section title styling */
+.try-section-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Product list wrapper */
+.try-product-list {
+    display: flex; /* Horizontal layout */
+    flex-wrap: nowrap; /* No wrapping, horizontal scroll only */
+    gap: 16px; /* Space between cards */
+}
+
+
+/* Loading Indicator */
+.try-loading-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.try-gradient-line1,
+.try-gradient-line2,
+.try-gradient-line3 {
+    width: 30px;
+    height: 5px;
+    background: linear-gradient(90deg, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+    animation: loading 1.2s infinite ease-in-out;
+}
+
+.try-gradient-line2 {
+    animation-delay: 0.2s;
+}
+
+.try-gradient-line3 {
+    animation-delay: 0.4s;
+}
+
+@keyframes loading {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/*================================================================*/
+
+/* Popup Overlay Styles */
+.try-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /*padding: 20px;*/
+}
+
+.try-popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.try-popup-content h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.try-popup-content p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.try-popup-content .try-signup-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.try-popup-content .try-signup-button:hover {
+    background-color: #0056b3;
+}
+
+.try-popup-content .try-close-button {
+    background-color: #ccc;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-left: 3px;
+}
+
+.try-popup-content .try-close-button:hover {
+    background-color: #999;
+}
+
+/* For preventing scrolling while popup is active */
+body.modal-active {
+    overflow: hidden;
+}
+
+
+/*============================Responsive View==============================*/
+
+@media (max-width: 480px){
+    .try-greeting-section .try-h1{
+        font-size: 28px;
+    }
+
+    .try-greeting-section .try-tagline{
+        font-size: 16px;
+        margin-left: 0px;
+    }
+
+    .try-prompt-section {
+        width: 90%; /* Full width for prompt section */
+        max-width: 500px; /* Set a max-width to prevent overflow */
+        margin-right: 25px;
+    }
+
+    .try-unsifted-textarea {
+        font-size: 12px; /* Smaller font size for textareas */
+        height: 20px;
+        max-height: 50px;
+    }
+
+    .try-shifted-textarea {
+        font-size: 12px; /* Smaller font size for textareas */
+        max-height: 25px;
+    }
+
+    .try-shifted-button {
+        width: 30px; /* Smaller button size */
+        height: 30px;
+    }
+
+    .message {
+        font-size: 12px !important; /* Smaller font size for messages */
+        padding: 6px 10px; /* Adjust padding */
+    }
+}
+
+@media (max-width: 768px){
+
+    .try-greeting-section h1{
+        font-size: 36px;
+    }
+
+    .try-greeting-section p{
+        font-size: 20px;
+        margin-left: 15px;
+    }
+
+    .try-prompt-section {
+        width: 90%; /* Full width for prompt section */
+        max-width: 600px; /* Set a max-width to prevent overflow */
+        margin-right: 30px;
+    }
+
+    .try-unsifted-textarea {
+        font-size: 14px; /* Smaller font size for textareas */
+        height: 25px;
+        max-height: 50px;
+    }
+
+    .try-shifted-textarea {
+        font-size: 14px; /* Smaller font size for textareas */
+        max-height: 30px;
+    }
+
+    .try-shifted-button {
+        width: 30px; /* Smaller button size */
+        height: 30px;
+    }
+
+    .try-shifted-conversation-container{
+        top: 43%;
+    }
+
+    .message {
+        font-size: 14px !important; /* Smaller font size for messages */
+        padding: 8px 12px; /* Adjust padding */
+    }
+}
+
+
