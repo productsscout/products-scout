@@ -27,7 +27,17 @@ const MainDashboard = ({ userName, tagline, isTransitioning, setTagline, setIsTr
         const scrollHeight = textarea.scrollHeight;
         textarea.style.height = `${Math.min(scrollHeight, 75)}px`;
 
-        setUserQuery(textarea.value);
+        // Count words
+        const words = textarea.value.trim().split(/\s+/);
+        const wordCount = words.length;
+
+        if (wordCount <= 80) {
+            setUserQuery(textarea.value);
+        } else {
+            // Restrict to the first 80 words
+            textarea.value = words.slice(0, 80).join(" ");
+        }
+
         setIsButtonDisabled(textarea.value.trim() === "" || isQueryInProgress);
     };
 
